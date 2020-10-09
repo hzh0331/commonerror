@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @GetMapping("/test")
     public String test(){
+        return "test";
+    }
+
+    @GetMapping("/test1")
+    public String test1(){
         throw new RuntimeException("抛出异常");
-//        return "test";
     }
 }
