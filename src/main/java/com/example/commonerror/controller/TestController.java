@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @GetMapping("/test")
     public String test(){
-        throw new RuntimeException("不能为负数");
+        throw new RuntimeException("抛出异常");
 //        return "test";
     }
 }
