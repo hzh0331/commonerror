@@ -6,8 +6,6 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +32,6 @@ public class CommonErrorController implements ErrorController {
      */
     @RequestMapping(value = path_default,  produces = {MediaType.APPLICATION_JSON_VALUE})
     public String error(HttpServletRequest request, WebRequest webRequest) {
-        RequestAttributes requestAttributes = new ServletRequestAttributes(request);
         Map<String, Object> body = this.errorAttributes.getErrorAttributes(webRequest, true);
         return body.toString();
     }
